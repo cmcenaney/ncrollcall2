@@ -10,16 +10,17 @@ def home(request):
 	return HttpResponse("this is a test")
 
 def gadb_action(request):
-	return render(request, "hvotes.html")
+	return HttpResponse("votes")
 
 def gadb_bill(request):
-	return render(request, "hmembers.html")
+	return render(request, "bills.html")
 
 def gadb_legislator(request):
-	return render(request, "svotes.html")
+
+	return render(request, "members.html")
 
 def gadb_stats(request):
-	return render(request, "smembers.html")
+	return HttpResponse("votes")
 
 def gadb_votes(request):
 	return HttpResponse("votes")
