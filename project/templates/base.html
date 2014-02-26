@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    
+<html lang=en>
+<head>
+        <title>{% block title %}NC Roll Call{% endblock %}</title>
+        <link href="{{ STATIC_URL  }}css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ STATIC_URL  }}css/bootstrap.css" rel="stylesheet">
+        <link href="{{ STATIC_URL  }}css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="{{ STATIC_URL  }}css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <a href="{% url 'index' %}"><img src="{{ STATIC_URL }}img/well.jpg" style=float:left;>
+        	<h1>NC Roll Call</h1>
+        </a>
+
+		<ul class="nav nav-tabs">
+		 	<li class="dropdown">
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			        Votes 
+			        <b class="caret"></b>
+			     </a>
+			    <ul class="dropdown-menu">
+			      <li><a href="{% url 'gadb_bill' %}">Senate</a></li>
+			      <li><a href="{% url 'gadb_action' %}">House</a></li>
+			    </ul>
+		  	</li>
+
+		  	<li class="dropdown">
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			        Members
+			        <b class="caret"></b>
+			    </a>
+			    <ul class="dropdown-menu">
+			    	<li><a href="{% url 'gadb_legislator' %}">Senate</a></li>
+			    	<li><a href="{% url 'gadb_stats' %}">House</a></li>
+			    </ul>
+		  	</li>
+		</ul>
+		
+
+        {% block content %} {% endblock %}
+
+    </div>
+
+   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+ 
+</body>
+</html>

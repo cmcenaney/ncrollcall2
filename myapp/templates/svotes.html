@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load humanize %}
+{% load url from future %}
+{% block content %}
+
+<div class="container">
+
+
+
+<h2>#{{players.number}} {{ players.name }}</h2>
+
+
+<table class="table table-hover table-bordered">
+
+	<tr>
+		<td>Position</td>
+		<td>{{players.position}}</td>
+    <td rowspan="6" style="text-align:center;"><img src="{{players.image}}" class="img-polaroid" width="150px"></td>  
+	</tr>
+	<tr>
+		<td>Height</td>
+		<td>{{players.height}} in.</td>
+	</tr>
+	<tr>
+		<td>Weight</td>
+		<td>{{players.weight}} lbs.</td>
+	</tr>
+	<tr>
+		<td>Hometown</td>
+		<td>{{players.hometown}}</td>
+	</tr>
+	<tr>
+		<td>High School</td>
+		<td>{{players.high_school}}</td>
+	</tr>
+	<tr>
+		<td>Major</td>
+		<td>{{players.major}}</td>
+	</tr>
+	
+</table>
+
+
+{% endblock %}
+
+
+
+		
