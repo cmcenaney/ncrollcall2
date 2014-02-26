@@ -85,9 +85,10 @@ class gadb_stats(models.Model):
         return U'%s' %(self.stat_id)
 
 class gadb_vote(models.Model):
+    vote_id = models.IntegerField(unique=False, max_length=11,primary_key=True)
     legislator_id = models.IntegerField(unique=False, max_length=11)
     action_id = models.IntegerField(unique=False, max_length=11)
-    vote = models.CharField(unique=False, max_length=3, primary_key=True)
+    vote = models.CharField(unique=False, max_length=3)
     with_party = models.IntegerField(unique=False, max_length=4)
 
     class Meta(object):
