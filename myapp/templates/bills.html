@@ -4,50 +4,35 @@
 {% load url from future %}
 {% block content %}
 
-<div class="container">
-<img src="{{ STATIC_URL }}img/court.jpg">
-
-  
-    <table >
-      <tr>
-        <td><h1>{{ team.season }}-2013 {{ team.name }}</h1></td>
-        <td style="padding-left:85px">
-          Season Record: {{ team.record }} <br>
-          Updated Feb. 23
-        </td>
-      </tr>
-    </table>
-  
-  
 
 
-<div class="row">
-  <div class="span8">
-    <table class="table table-hover table-bordered">
-      {% for i in teamList %}
-      <tr>
-        <td><style="font-size:15px">#{{ i.number }}</td>
-        <td>
-          <a href="{% url 'team_players' i.id %}"><strong> {{ i.name }} </strong></a> </br>
-          {{ i.position }}
-        </td>
-        <td style="text-align:center;"><img src="{{ i.image }}" class="img-polaroid" width="50px"></td>
-      </tr>
-      {% endfor %}
-    </table>
+
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" style="width: 35%">
+      <span class="sr-only">35% Complete (success)</span>
+    </div>
+    <div class="progress-bar progress-bar-warning" style="width: 20%">
+      <span class="sr-only">20% Complete (warning)</span>
+    </div>
+    <div class="progress-bar progress-bar-danger" style="width: 10%">
+      <span class="sr-only">10% Complete (danger)</span>
+    </div>
   </div>
-  <div class="span4">
-   <a class="twitter-timeline" href="https://twitter.com/UNC_Basketball" data-widget-id="313404567612162048">Tweets by @UNC_Basketball</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
 
+  
+    
 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae rutrum mauris. Fusce at velit eget neque imperdiet ultricies. Suspendisse fringilla vitae sapien eget vehicula. Nam dictum a sapien sed scelerisque. Sed sem mi, ultrices ut quam ac, pellentesque commodo felis. Nullam venenatis libero ipsum, et vehicula odio eleifend at. Quisque justo augue, auctor vitae nibh a, malesuada malesuada est. Curabitur vestibulum nisi magna, nec posuere enim laoreet ac. Nullam vestibulum quam orci, eget ultrices mi sodales eu. Aenean id dui interdum, tristique diam at, sodales justo. Nulla facilisi.
 
-  </div>
-</div>
+Integer consectetur mi et faucibus semper. Duis ultrices vulputate felis commodo ultrices. Fusce varius, orci at tincidunt mollis, urna risus lobortis mauris, vel faucibus tortor leo eu ante. Donec pretium, lorem vitae commodo auctor, lacus felis consequat elit, eu aliquet nisl tortor sit amet lectus. Ut non mollis magna. In porttitor est venenatis dignissim lobortis. Vestibulum risus metus, placerat eu odio quis, gravida pellentesque urna.
 
-</div>
+Morbi commodo elementum libero et mollis. Aenean iaculis libero eget leo lobortis, id tempus sem mattis. Duis ornare tellus justo, ultricies auctor lectus cursus et. Mauris non lorem pulvinar, scelerisque odio id, tincidunt lorem. Nullam facilisis purus vel interdum consequat. Nam eget dolor in risus dignissim rhoncus. Quisque iaculis commodo mi sit amet lobortis. Quisque nec tortor ut tellus consectetur volutpat vitae at quam. Quisque sodales nibh et fermentum cursus. In porttitor nisl euismod turpis malesuada aliquet. Mauris aliquet eu diam non tempus. Suspendisse potenti. Morbi euismod felis eu ullamcorper vehicula.
+
+Quisque cursus congue mi sit amet fringilla. Aliquam pellentesque leo ac ullamcorper vehicula. Sed vel laoreet elit. Curabitur eget nibh sit amet orci tristique blandit nec eget urna. Vestibulum luctus et nisl vitae vulputate. Ut enim elit, scelerisque sed urna sit amet, luctus placerat massa. Mauris aliquam, neque in hendrerit laoreet, purus mi porta ante, ac egestas orci magna sit amet velit. Donec adipiscing tortor vitae elementum tristique. Aliquam elementum felis sem, lacinia pulvinar leo hendrerit vitae. Etiam vitae tellus pharetra, mattis dui in, interdum urna. Donec elit lorem, bibendum sit amet hendrerit eget, dapibus ut arcu. Sed tellus libero, cursus a justo in, ultricies mattis velit. Donec rutrum massa et arcu condimentum viverra. Duis ornare diam ac hendrerit sollicitudin. Pellentesque ullamcorper, ligula sed lobortis ultricies, massa ligula ultrices felis, at malesuada sem lorem in dui.
+
+Morbi id elit magna. Donec ullamcorper lacus sed elit eleifend, sit amet blandit risus accumsan. Nulla facilisi. Vestibulum sed turpis quis turpis mollis ornare. Sed scelerisque nisi nec fermentum blandit. Aliquam vitae nulla pharetra, consectetur enim a, rhoncus lorem. Curabitur pharetra bibendum sem sit amet pretium. Nam dapibus tincidunt nibh, at gravida mi ultricies sit amet. Fusce vulputate, dolor non tristique gravida, est mi venenatis sapien, id ornare nulla augue eu ante.
 
 
 
