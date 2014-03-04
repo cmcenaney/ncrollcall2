@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from myapp.models import gadb_action, gadb_bill, gadb_legislator, gadb_stats, gadb_vote
 from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 
 
 def index(request):
@@ -12,15 +13,28 @@ def home(request):
 def gadb_action(request):
 	return HttpResponse("votes")
 
-def gadb_bill(request):
-	return render(request, "bills.html")
+def bill(request):
+	bill = gadb_bill.objects.all()
+	context = {'bill': bill}
+	return render(request,'bills.html',context)
 
-def gadb_legislator(request):
+# def bill(request, bill_id):
+#     bill = get_object_or_404(gadb_bill, pk=bill_id)
+#     return render(request, 'bills.html', {'bill': bill})
 
-	return render(request, "members.html")
+def member(request):
+	member = gadb_legislator.objects.all()
+	context = {'member': member}
+	return render (request, 'members.html',context)
+
+
 
 def gadb_stats(request):
 	return HttpResponse("votes")
 
 def gadb_votes(request):
 	return HttpResponse("votes")
+
+
+
+
