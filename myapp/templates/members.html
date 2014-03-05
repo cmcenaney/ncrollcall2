@@ -4,13 +4,27 @@
 {% load url from future %}
 {% block content %}
 
-{% for i in member %}
-  <div>
-    {{ i.first_name}}
-    {{ i.last_name}}
-   
-  </div>
-{% endfor %}
+
+<div class = "container-fluid">
+	<div class="row ">
+	{% for i in member %}
+
+  		<div class="col-md-4">
+  			<!--<img src="{{ STATIC_URL }}{{ i.photo}} ">-->
+  			{{ i.party }}
+  		</div>
+  		<div class="col-md-4">
+  			<a href="{% url 'each_member' i.legislator_id %}">{{ i.first_name}} {{ i.last_name}}</a>
+  		</div>
+  		<div class="col-md-4">
+  			{{ i.district }}
+  		</div>
+	{% endfor %}
+	</div>
+</div>
+
+
+
 
 
 

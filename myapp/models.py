@@ -40,7 +40,7 @@ class gadb_bill(models.Model):
         #ordering = ('-date', 'name',)
         
     def __unicode__(self):
-        return U'%s' %(self.bill_id)
+        return U'%s' %(self.chamber + "B " + str(self.bill_id) + " " + self.subject)
 
 class gadb_legislator(models.Model):
     legislator_id = models.IntegerField(unique=False, max_length=11, primary_key=True)
@@ -53,7 +53,7 @@ class gadb_legislator(models.Model):
     office_addr = models.CharField(unique=False, max_length=50)
     office_phone = models.CharField(unique=False, max_length=50)
     email = models.CharField(unique=False, max_length=50)
-    legislative_addr = models.CharField(unique=False, max_length=50)
+    legislative_addr = models.CharField(unique=False, max_length=80)
     terms = models.CharField(unique=False, max_length=50)
     counties = models.CharField(unique=False, max_length=50)
     occupation = models.CharField(unique=False, max_length=50)
@@ -70,7 +70,7 @@ class gadb_legislator(models.Model):
         #ordering = ('-date', 'name',)
         
     def __unicode__(self):
-        return U'%s' %(self.legislator_id)
+        return U'%s' %(self.last_name + ", " + self.first_name)
 
 class gadb_stats(models.Model):
     stat_id = models.IntegerField(unique=False, max_length=11, primary_key=True)

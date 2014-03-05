@@ -18,22 +18,21 @@ def bill(request):
 	context = {'bill': bill}
 	return render(request,'bills.html',context)
 
-# def bill(request, bill_id):
-#     bill = get_object_or_404(gadb_bill, pk=bill_id)
-#     return render(request, 'bills.html', {'bill': bill})
-
 def member(request):
 	member = gadb_legislator.objects.all()
 	context = {'member': member}
 	return render (request, 'members.html',context)
 
-
+def each_member(request):
+	return HttpResponse("this is a test")
 
 def gadb_stats(request):
 	return HttpResponse("votes")
 
 def gadb_votes(request):
 	return HttpResponse("votes")
+
+
 
 
 
