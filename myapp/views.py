@@ -23,16 +23,20 @@ def member(request):
 	context = {'member': member}
 	return render (request, 'members.html',context)
 
-def each_member(request):
-	return HttpResponse("this is a test")
+def each_member(request,pk):
+	each_member = get_object_or_404(gadb_legislator, legislator_id=pk)
+	return render(request, "eachmember.html", {'each_member': each_member})
+
+
+	# each_member = gadb_legislator.objects.all()
+	# context = {'each_member': each_member}
+	# return render (request, 'eachmember.html',context)
 
 def gadb_stats(request):
 	return HttpResponse("votes")
 
 def gadb_votes(request):
 	return HttpResponse("votes")
-
-
 
 
 
