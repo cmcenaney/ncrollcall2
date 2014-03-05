@@ -3,13 +3,21 @@
 {% load url from future %}
 {% block content %}
 
-{{ each_bill.bill_id }}
 
 
-Hello World
+{{ each_bill.doc_id }}
+{{ each_bill.description }}
+{{ each_bill.doc_url }}
+{{ each_bill.is_featured }}
+{{ each_bill.description }}
+{{ each_bill.status }}
+{{ each_bill.last_action }}
+
+
 
 
 
 
 
 {% endblock %}
+

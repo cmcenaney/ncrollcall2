@@ -1,0 +1,15 @@
+.pic{
+	width:100%;
+	
+
+}
+
+figure{
+	width:100%;
+	
+	float:left;
+}
+
+figcaption{
+	text-align: center;
+}
