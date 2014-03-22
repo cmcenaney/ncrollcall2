@@ -13,3 +13,10 @@ figure{
 figcaption{
 	text-align: center;
 }
+
+#map-canvas{
+	height:25em;
+	width:100%;
+	margin-bottom:20px;
+}
+

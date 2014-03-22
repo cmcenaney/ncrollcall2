@@ -4,12 +4,20 @@
 {% load url from future %}
 {% block content %}
 
-
+<div id="panel">
+  <h2>Find your representative</h2>
+  <input id="address" type="textbox" value="Raleigh, NC">
+  <input type="button" value="Search" onclick="codeAddress()">  
+  <div id="map-canvas"></div>
 <div class = "container-fluid">
+  
+    
+      
+  </div>
 	<div class="row ">
 	{% for i in member %}
     
-  <div class="col-lg-2 col-md-4 col-xs-6">
+  <div class="col-lg-2 col-md-4 col-xs-6 col-sm-12">
     <a href="{{ i.legislator_id}}">
   		<figure>
   			<img src="{{ STATIC_URL }}{{ i.photo}}" class="pic">
