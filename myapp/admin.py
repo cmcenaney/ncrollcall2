@@ -15,6 +15,8 @@ admin.site.register(gadb_bill, gadb_billAdmin)
 
 class gadb_legislatorAdmin(admin.ModelAdmin):
     search_fields = ('name',),
+    filter_horizontal = ('votelist',)
+
     
 admin.site.register(gadb_legislator, gadb_legislatorAdmin)
 

@@ -44,6 +44,7 @@ class gadb_bill(models.Model):
 
 class gadb_vote(models.Model):
     vote_id = models.IntegerField(unique=False, max_length=11,primary_key=True)
+    legislator_id = models.IntegerField(unique=False, max_length=11)
     action_id = models.IntegerField(unique=False, max_length=11)
     vote = models.CharField(unique=False, max_length=3)
     with_party = models.IntegerField(unique=False, max_length=4)
@@ -72,6 +73,7 @@ class gadb_legislator(models.Model):
     counties = models.CharField(unique=False, max_length=50)
     occupation = models.CharField(unique=False, max_length=50)
     home_address = models.CharField(unique=False, max_length=50)
+    total_votes = models.IntegerField(unique=False, max_length=11)
     eligible_votes = models.IntegerField(unique=False, max_length=11)
     actual_votes = models.IntegerField(unique=False, max_length=11)
     with_majority = models.IntegerField(unique=False, max_length=11)

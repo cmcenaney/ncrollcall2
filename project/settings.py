@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'myapp',
+    'south'
 )
 
 MIDDLEWARE_CLASSES = (

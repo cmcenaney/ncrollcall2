@@ -4,7 +4,7 @@
 {% load url from future %}
 {% block content %}
 
-
+<iframe width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col4+from+1DsJzdmelhyrX5LzT7M8BzAqA2ZdzOsltK9GjjNw&amp;viz=MAP&amp;h=false&amp;lat=35.18287974987857&amp;lng=-79.860994&amp;t=1&amp;z=7&amp;l=col4"></iframe>
 
 
   <div class="progress">
@@ -20,14 +20,30 @@
   </div>
 
 
-{% for i in bill %}
-  <div>
-    <a href ="{{ i.bill_id }}">
-    {{ i.doc_id}}
-    {{ i.subject}}
-  </a>
-  </div>
-{% endfor %}
+<div class="row">
+      <div class="table-responsive">
+
+        <table class="table table-striped">
+          
+          
+            {% for i in bill %}
+            <tr> 
+              <td>
+                <h3><a href="{{ i.bill_id}}">{{ i.doc_id }}: {{ i.subject }}</a></h3>
+                <p>{{ i.description }}</p>
+                <p>{{ i.status }}<p>
+                
+              </td>
+              
+            </tr>
+            
+            {% endfor %}
+           
+            </table>
+          </div>
+        </div>
+
+
 
 
 

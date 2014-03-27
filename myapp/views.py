@@ -2,6 +2,7 @@ from django.shortcuts import render
 from myapp.models import gadb_action, gadb_bill, gadb_legislator, gadb_stats, gadb_vote
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect, render_to_response
+# from django.views.generic.list import ListView
 
 
 def index(request):
@@ -29,13 +30,36 @@ def member(request):
 
 def each_member(request,legislator_id):
 	each_member = get_object_or_404(gadb_legislator, legislator_id=legislator_id)
-	return render(request, "eachmember.html", {'each_member': each_member})
+	
+	each_vote = gadb_vote.objects.filter(gadb_legislator=legislator_id)
+
+	context = {
+		'each_member': each_member,
+		'votes': each_vote
+	}
+	
+	return render(request, "eachmember.html", context)
+
+
+
+	# all_models_dict = {
+ #        "template_name": "eachmember.html",
+ #        "queryset": each_member.objects.all(),
+ #        "extra_context" : {"vote" : gadb_vote.objects.all(),
+ #                           "each_member": get_object_or_404(gadb_legislator, legislator_id=legislator_id)
+ #                           #and so on for all the desired models...
+ #                           }
+ #    }
+
 
 def gadb_stats(request):
 	return HttpResponse("votes")
 
 def gadb_votes(request):
-	return HttpResponse("votes")
+	vote = gadb_vote.objects.all()
+	context = {'vote': vote}
+	return render(request,'eachbill.html',context)
+
 
 
 

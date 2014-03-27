@@ -1,3 +1,5 @@
+
+
 var geocoder;
 var map, layer;
 function initialize() {
@@ -10,8 +12,9 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+
   var layer = new google.maps.KmlLayer({
-    url: 'http://colleenmcenaney.com/kml/house2.kml'
+    url: 'http://colleenmcenaney.com/kml/gun.kml'
   });
 
   layer.setMap(map);
@@ -34,8 +37,11 @@ function codeAddress() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+$('#box').keyup(function(){
+   var valThis = $(this).val().toLowerCase();
+    $('.navList>li').each(function(){
+     var text = $(this).text().toLowerCase();
+        (text.indexOf(valThis) == 0) ? $(this).show() : $(this).hide();            
+   });
+});
 
-
-
-
- 
