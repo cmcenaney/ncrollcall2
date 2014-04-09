@@ -45,6 +45,7 @@ class gadb_bill(models.Model):
 
 class gadb_vote(models.Model):
     vote_id = models.IntegerField(unique=False, max_length=11,primary_key=True)
+    legislator_id = models.IntegerField(unique=False, max_length=11)
     action_id = models.IntegerField(unique=False, max_length=11)
     vote = models.CharField(unique=False, max_length=3)
     with_party = models.IntegerField(unique=False, max_length=4)
@@ -80,7 +81,7 @@ class gadb_legislator(models.Model):
     photo = models.CharField(unique=False, max_length=50)
     votelist = models.ManyToManyField(gadb_vote)
 
-    
+
 
     class Meta(object):
         verbose_name_plural = "Legislator"

@@ -33,14 +33,13 @@ def member(request):
 def each_member(request,legislator_id):
 	each_member = get_object_or_404(gadb_legislator, legislator_id=legislator_id)
 	
-	each_vote = gadb_vote.objects.filter(gadb_legislator=legislator_id)
+	each_vote = gadb_vote.objects.filter(legislator_id=legislator_id)
 
-	vote = gadb_vote.objects.all()
+	# vote = gadb_vote.objects.all()
 
 	context = {
 		'each_member': each_member,
-		'each_vote': each_vote,
-		'vote': vote
+		'each_vote': each_vote
 	}
 	
 	return render(request, "eachmember.html", context)
