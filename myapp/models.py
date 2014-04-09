@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.exceptions import MultipleObjectsReturned
+import re
 
 # Create your models here.
 class gadb_action(models.Model):
@@ -78,6 +79,8 @@ class gadb_legislator(models.Model):
     against_majority = models.IntegerField(unique=False, max_length=11)
     photo = models.CharField(unique=False, max_length=50)
     votelist = models.ManyToManyField(gadb_vote)
+
+    
 
     class Meta(object):
         verbose_name_plural = "Legislator"

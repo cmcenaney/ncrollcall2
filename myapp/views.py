@@ -6,7 +6,9 @@ from django.shortcuts import render, get_object_or_404, redirect, render_to_resp
 
 
 def index(request):
-    return render(request, "index.html")
+    # vote = gadb_vote.objects.all()
+    # return render(request, "index.html", {'vote': vote})
+    return render(request,"index.html")
 
 def home(request):
 	return HttpResponse("this is a test")
@@ -33,12 +35,16 @@ def each_member(request,legislator_id):
 	
 	each_vote = gadb_vote.objects.filter(gadb_legislator=legislator_id)
 
+	vote = gadb_vote.objects.all()
+
 	context = {
 		'each_member': each_member,
-		'votes': each_vote
+		'each_vote': each_vote,
+		'vote': vote
 	}
 	
 	return render(request, "eachmember.html", context)
+
 
 
 

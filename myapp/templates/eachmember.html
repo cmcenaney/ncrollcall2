@@ -9,26 +9,86 @@
       <img src ="{{ STATIC_URL }}{{ each_member.photo }}" class="img-responsive img-circle">
     </div>	
     <div class="col-md-10">
-     <h1>{{ each_member.first_name }} {{ each_member.last_name }}</h1>
-     <h2>{{ each_member.party }}, {{each_member.chamber}} District {{ each_member.district }}</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <h1>{{ each_member.first_name }} {{ each_member.last_name }}</h1>
+          <h4>{{ each_member.party }}, {{each_member.chamber}} District {{ each_member.district }}</h4>
+          
+        </div>
+      <div class="col-md-3 well well-sm">
+        <h5>Votes with Majority</h5>
+          {{ each_member.with_majority }}
+
+
+      </div>
+
+<div class="col-md-3 well well-sm">
+  <h5>Total Votes</h5>
+  {{ each_member.actual_votes }}
+</div>
+   </div>
+    <hr>
 
      <div class="row">
       <div class="col-md-6">
        <address>
-        <strong>Office Address</strong><br>
-        {{ each_member.office_addr }}<br>
-        {{ votes.vote_id }}</br>
-        <abbr title="Phone">P:</abbr> {{ each_member.office_phone }}
+        <strong>Office Address</strong>
+        <p>
+        <!--{{ each_vote.vote_id }}</br> -->
+        
+        {{ each_member.office_addr }}</p>
+        <strong>Counties</strong>
+        <p>{{ each_member.counties }}</p>
       </address>
     </div>
     <div class="col-md-6">
-      <strong> Email Address</strong><br>
+      <strong>Contact</strong>
+      <p>{{ each_member.office_phone }}</br>
 
-      <p><a href="mailto:{{ each_member.email }}">{{ each_member.email }}</a></p>
+      <a href="mailto:{{ each_member.email }}">{{ each_member.email }}</a></p>
+      <strong> Occupation</strong>
+      <p>{{ each_member.occupation }}</p>
     </div>
   </div>
+
 </div>
+
 </div>
+<hr>
+
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Votes on Featured Bills
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        {{ vote.vote }}
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Voting History
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
 </div>
 
 

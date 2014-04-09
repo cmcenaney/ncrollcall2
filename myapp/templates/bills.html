@@ -4,10 +4,10 @@
 {% load url from future %}
 {% block content %}
 
-<iframe width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col4+from+1DsJzdmelhyrX5LzT7M8BzAqA2ZdzOsltK9GjjNw&amp;viz=MAP&amp;h=false&amp;lat=35.18287974987857&amp;lng=-79.860994&amp;t=1&amp;z=7&amp;l=col4"></iframe>
+<!-- <iframe width="500" height="300" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?q=select+col4+from+1DsJzdmelhyrX5LzT7M8BzAqA2ZdzOsltK9GjjNw&amp;viz=MAP&amp;h=false&amp;lat=35.18287974987857&amp;lng=-79.860994&amp;t=1&amp;z=7&amp;l=col4"></iframe> -->
 
 
-  <div class="progress">
+  <!-- <div class="progress">
     <div class="progress-bar progress-bar-success" style="width: 35%">
       <span class="sr-only">35% Complete (success)</span>
     </div>
@@ -17,13 +17,13 @@
     <div class="progress-bar progress-bar-danger" style="width: 10%">
       <span class="sr-only">10% Complete (danger)</span>
     </div>
-  </div>
+  </div> -->
 
 
 <div class="row">
       <div class="table-responsive">
 
-        <table class="table table-striped">
+        <table class="table table-striped" id="mytable">
           
           
             {% for i in bill %}
@@ -44,10 +44,14 @@
         </div>
 
 
+<script>
+$(document).ready(function(){
+$(function(){
+$("#mytable").tablesorter();
+});
+});
 
-
-
-
+</script>
 
 
 
