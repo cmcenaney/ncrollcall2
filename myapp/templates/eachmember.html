@@ -83,12 +83,37 @@
     </div>
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
-        {% for i in each_vote %}
-          {{ i.vote }}
-          {{ i.action_id }}
+        
 
-        {% endfor %}
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        <table class="table table-striped" id="mytable">
+          <thead>
+     
+            <th>Bill <span class="glyphicon glyphicon-sort"></span></th>
+            <th>Vote <span class="glyphicon glyphicon-sort"></span></th>
+          
+          </thead>
+          <tbody>
+            {% for i in each_vote %}
+            <tr> 
+              <td>
+                <p>{{ i.action_id }}</p>
+              </td>
+              <td>{{ i.vote }}</p>
+                
+              
+              <td>
+                
+               <!-- {% for key in i.counties %} 
+                {{ key }}
+                  
+               {% endfor %}
+ -->
+              </td>
+            </tr>
+
+            {% endfor %}
+            <tbody>
+            </table>
       </div>
     </div>
   </div>
@@ -99,6 +124,13 @@
 
 
 
+<script>
+$(document).ready(function(){
+$(function(){
+$("#mytable").tablesorter();
+});
+});
+</script>
 
 
 {% endblock %}

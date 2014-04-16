@@ -13,8 +13,7 @@ def index(request):
 def home(request):
 	return HttpResponse("this is a test")
 
-def gadb_action(request):
-	return HttpResponse("votes")
+
 
 def bill(request):
 	bill = gadb_bill.objects.all()
@@ -23,7 +22,13 @@ def bill(request):
 
 def each_bill(request,bill_id):
 	each_bill = get_object_or_404(gadb_bill, bill_id=bill_id)
-	return render(request, "eachbill.html", {'each_bill': each_bill})
+	action = gadb_action.objects.filter(bill_id=bill_id)
+
+	context = {
+		'each_bill': each_bill,
+		'action': action
+	}
+	return render(request, "eachbill.html", context)
 
 def member(request):
 	member = gadb_legislator.objects.all()
@@ -34,7 +39,6 @@ def each_member(request,legislator_id):
 	each_member = get_object_or_404(gadb_legislator, legislator_id=legislator_id)
 	
 	each_vote = gadb_vote.objects.filter(legislator_id=legislator_id)
-
 	# vote = gadb_vote.objects.all()
 
 	context = {

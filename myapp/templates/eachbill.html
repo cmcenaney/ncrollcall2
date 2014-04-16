@@ -11,8 +11,31 @@
 
 <h3><a href="http://{{ each_bill.doc_url}}" target=_blank>{{ each_bill.doc_id }}: {{ each_bill.subject }}</a></h3>
 
+<table class="table table-striped" id="mytable">
+	<thead>
+	</thead>
+	<tbody>
+		{% for i in action %}
+		<tr>
+			<td>
+				{{ i.action_id }}
+			</td>
+			<td>
+				{{ i.bill_id }}
+			</td>
+			<td>
+				{{ i.motion }}
+			</td>
+			<td>
+				{{ i.datetime }}
+			</td>
+			<td>
+				{{ i.chamber }}
+			</td>
 
-
+		{% endfor %}
+	</tbody>
+</table>
 
 
 {% endblock %}
