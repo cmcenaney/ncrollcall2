@@ -3,40 +3,34 @@
 {% load url from future %}
 {% block content %}
 
-
-
-
-
-
-
-<h3><a href="http://{{ each_bill.doc_url}}" target=_blank>{{ each_bill.doc_id }}: {{ each_bill.subject }}</a></h3>
+<h3>
+	<a href="http://{{ each_bill.doc_url}}" target=_blank>{{ each_bill.doc_id }}: {{ each_bill.subject }}</a>
+</h3>
 
 <table class="table table-striped" id="mytable">
 	<thead>
+		<th>Motion</th>
+		<th>Ayes</th>
+		<th>Nos</th>
+		<th>Result</th>
 	</thead>
 	<tbody>
 		{% for i in action %}
 		<tr>
 			<td>
-				{{ i.action_id }}
-			</td>
-			<td>
-				{{ i.bill_id }}
-			</td>
-			<td>
 				{{ i.motion }}
 			</td>
 			<td>
-				{{ i.datetime }}
+				{{ i.aye }}
 			</td>
 			<td>
-				{{ i.chamber }}
+				{{ i.no }}
 			</td>
-
+			<td>
+				{{ i.result }}
+			</td>
 		{% endfor %}
 	</tbody>
 </table>
-
-
 {% endblock %}
 

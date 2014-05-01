@@ -2,18 +2,43 @@ from django.shortcuts import render
 from myapp.models import gadb_action, gadb_bill, gadb_legislator, gadb_stats, gadb_vote
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect, render_to_response
+
 # from django.views.generic.list import ListView
 
 
 def index(request):
-    # vote = gadb_vote.objects.all()
-    # return render(request, "index.html", {'vote': vote})
-    return render(request,"index.html")
+    bill = gadb_bill.objects.all()
+    member = gadb_action.objects.all()
+    # action = gadb_action.objects.all()
+    action_list = []
+
+    limit = 10
+    # count_action = action.count()
+    # end_action = action[count_action-limit:]
+    count_bill = bill.count()
+    end_bill = bill[count_bill-limit:]
+
+   
+    for i in end_bill:
+    	action = gadb_action.objects.filter(bill_id=i.bill_id)
+    	action_list.append(action)
+
+    context = {
+    	'action':action,
+    	'bill':end_bill,
+    	'member':member
+    }
+    return render(request, "index.html", context)
+    #return render(request,"index.html")
+
+
+#     queryset = Shop.objects.filter(id=someArray[id])
+# limit = 1000
+# count = queryset.count()
+# endoflist = queryset.order_by('timestamp')[count-limit:]
 
 def home(request):
 	return HttpResponse("this is a test")
-
-
 
 def bill(request):
 	bill = gadb_bill.objects.all()
@@ -37,7 +62,6 @@ def member(request):
 
 def each_member(request,legislator_id):
 	each_member = get_object_or_404(gadb_legislator, legislator_id=legislator_id)
-	
 	each_vote = gadb_vote.objects.filter(legislator_id=legislator_id)
 	# vote = gadb_vote.objects.all()
 

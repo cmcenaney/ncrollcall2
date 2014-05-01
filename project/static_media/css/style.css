@@ -1,26 +1,19 @@
 .pic{
 	width:100%;
-	
+}
 
+.banner{
+	align: center;
 }
 
 figure{
 	width:100%;
-	
 	float:left;
 }
 
 figcaption{
 	text-align: center;
 }
-
-#map-canvas{
-	height:25em;
-	width:100%;
-	margin-bottom:20px;
-}
-
-
 
 h1,h2,h3{
 	font-family:Georgia, serif;
@@ -40,6 +33,25 @@ th{
 	cursor:pointer;
 }
 
+.nav{
+	width:50%;
+	text-align: center;
+}
+
+.row{
+	margin-left:-15px;
+}
+
+.leaders {
+	float:left;
+	text-align: center;
+
+}
+
+.leaders img{
+	display:inline;
+	display:block;
+}
 
 
 

@@ -9,22 +9,114 @@
 	<div class="col-md-6">
 		<div class="panel panel-default">
   			<div class="panel-heading">
-    			<h3 class="panel-title">Recent Key Votes</h3>
+    			<h3 class="panel-title">Senate Leaders</h3>
+          <p>Republicans hold the majority in the Senate, 33-17. Senators were last elected in November 2012.</p>
   			</div>
 			<div class="panel-body">
-    			Panel content
+          <img src="{{ STATIC_URL }}/img/berger.png"> 
+          <p><a href="{% url 'gadb_legislator' %}1822">Phil Berger</a></p>     
   			</div>
 		</div>
 	</div>
 	<div class="col-md-6">
 		<div class="panel panel-default">
   			<div class="panel-heading">
-    			<h3 class="panel-title">Party Leaders</h3>
+    			<h2 class="panel-title">House Leaders</h2>
+          <p>Republicans hold the majority in the House, 77-43. Representatives were last elected in November 2012.</p>
+
+          {% for i in member %}
+            {{ i.first_name }}
+          {% endfor %}
   			</div>
   			<div class="panel-body">
-    			Panel content
+          <img src="{{ STATIC_URL }}/img/hall.png">
+          <p><a href="{% url 'gadb_legislator' %}1474">Larry Hall</a></p>
+          <img src="{{ STATIC_URL }}/img/tillis.png">
+          <p><a href="{% url 'gadb_legislator' %}1806">Thom Tillis</a></p>
+          
   			</div>
 		</div>
 	</div>
+  <div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Recent Bills</h3>
+        </div>
+      <div class="panel-body">
+        <table class="table table-striped" id="mytable">
+       <!--  {% for i in bill %}
+        <tr>
+          <td>{{ i.subject }}</td>
+          <td>{{ i.bill_id }}</td>
+          {% for i.bill_id in action %}
+            {{ i.bill_id }}
+            {% if i.bill_id in action %}
+              hello
+            {% endif %}
+         {% endfor %}
+          {% endfor %} 
+        </tr>  -->
+        {% for i in action %}
+        <tr>
+          <td>{{ i.motion }}</td>
+          <td>{{ i.result }}</td>
+          <td>{{ i.bill_id }}</td>
+        </tr>
+        {% endfor %}
+
+        <!-- {% for i in action %}
+        <tr>
+          <td>{{ i.action_id }}</td>
+          <td>{{ i.bill_id }}</td>
+        </tr>
+        {% endfor %} -->
+
+        {% for i in bill %}
+        <tr>
+          <td><a href="{% url 'gadb_bill' %}{{i.bill_id}}">{{ i.subject }}</a></td>
+          <td>{{ i.doc_id }}</td>
+          <td>{{ i.bill_id }}</td>
+        </tr>
+        {% endfor %}
+
+        <!-- {% for i in actions %}
+          {{ i.bill_id }}
+        {% endfor %}
+
+        {% for i in bill %}
+        <tr>{{ i.subject }}</tr>
+
+         {% for b in actions %}
+          {{ b.result }}
+            
+            {% if i.bill_id == b.bill_id %}
+              </tr>{{ b.result }}</tr>
+
+            {% else %}
+            hello 
+
+
+         <!--  {% endif %} -->
+         {% endfor %}
+         {% endfor %} -->
+      
+       <!--  {% for i in action %}
+        <tr>
+          <td>{{ i.subject }}</td>
+          
+          <td>{{ i.bill_id }}</td>
+          <td>{{ i.aye }}</td>
+          <td>{{ i.no }}</td>
+          
+       
+          <td>{{ i.result }}</td>
+          {% endfor %} -->
+
+          
+        </tr>
+        </table>
+        </div>
+    </div>
+  </div>
 </div>
 {% endblock %} 

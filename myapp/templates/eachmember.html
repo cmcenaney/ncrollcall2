@@ -13,124 +13,48 @@
         <div class="col-md-6">
           <h1>{{ each_member.first_name }} {{ each_member.last_name }}</h1>
           <h4>{{ each_member.party }}, {{each_member.chamber}} District {{ each_member.district }}</h4>
-          
-        </div>
-      <div class="col-md-3 well well-sm">
-        <h5>Votes with Majority</h5>
-          {{ each_member.with_majority }}
-
-
+        </div>  
       </div>
-
-<div class="col-md-3 well well-sm">
-  <h5>Total Votes</h5>
-  {{ each_member.actual_votes }}
-</div>
-   </div>
-    <hr>
-
+      <hr>
      <div class="row">
       <div class="col-md-6">
-       <address>
-        <strong>Office Address</strong>
-        <p>
-        <!--{{ each_vote.vote_id }}</br> -->
-        
-        {{ each_member.office_addr }}</p>
-        <strong>Counties</strong>
-        <p>{{ each_member.counties }}</p>
-      </address>
-    </div>
-    <div class="col-md-6">
-      <strong>Contact</strong>
-      <p>{{ each_member.office_phone }}</br>
-
-      <a href="mailto:{{ each_member.email }}">{{ each_member.email }}</a></p>
-      <strong> Occupation</strong>
-      <p>{{ each_member.occupation }}</p>
+        <address>
+          <strong>Office Address</strong>
+          <p>{{ each_member.office_addr }}</p>
+          <strong>Occupation</strong>
+          <p>{{ each_member.occupation }}</p>
+        </address>
+      </div>
+      <div class="col-md-6">
+        <strong>Contact</strong>
+        <p>{{ each_member.office_phone }}</br>
+        <a href="mailto:{{ each_member.email }}">{{ each_member.email }}</a></p> 
+      </div>
     </div>
   </div>
-
-</div>
-
 </div>
 <hr>
-
-<div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Votes on Featured Bills
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-
-       
-       
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Voting History
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        
-
-        <table class="table table-striped" id="mytable">
-          <thead>
-     
-            <th>Bill <span class="glyphicon glyphicon-sort"></span></th>
-            <th>Vote <span class="glyphicon glyphicon-sort"></span></th>
-          
-          </thead>
-          <tbody>
-            {% for i in each_vote %}
-            <tr> 
-              <td>
-                <p>{{ i.action_id }}</p>
-              </td>
-              <td>{{ i.vote }}</p>
-                
-              
-              <td>
-                
-               <!-- {% for key in i.counties %} 
-                {{ key }}
-                  
-               {% endfor %}
- -->
-              </td>
-            </tr>
-
-            {% endfor %}
-            <tbody>
-            </table>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-</div>
-
-
-
+<h2>Voting History</h2>
+  <table class="table table-striped" id="mytable">
+    <thead>   
+      <th>Bill <span class="glyphicon glyphicon-sort"></span></th>
+      <th>Vote <span class="glyphicon glyphicon-sort"></span></th> 
+    </thead>
+    <tbody>
+      {% for i in each_vote %}
+      <tr> 
+        <td>{{ i.action_id }}</td>
+        <td>{{ i.vote }}</p>
+      </tr>
+      {% endfor %}
+    <tbody>
+  </table>
 <script>
-$(document).ready(function(){
-$(function(){
-$("#mytable").tablesorter();
-});
-});
+  $(document).ready(function(){
+    $(function(){
+      $("#mytable").tablesorter();
+    });
+  });
 </script>
-
-
 {% endblock %}
+

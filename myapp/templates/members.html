@@ -4,32 +4,16 @@
 {% load url from future %}
 {% block content %}
 
-<div id="panel">
-  <!-- <h2>Find your representative</h2>
-  <input id="address" type="textbox" value="Raleigh, NC">
-  <input type="button" value="Search" onclick="codeAddress()">  
-  <div id="map-canvas"></div> -->
-
-
-
-
-
-
-  
+<div id="panel"> 
   <div class = "container-fluid">
-
-
-
     <div class="row">
       <div class="table-responsive">
-
         <table class="table table-striped" id="mytable">
           <thead>
             <th></th>
             <th>Name <span class="glyphicon glyphicon-sort"></span></th>
             <th>Chamber <span class="glyphicon glyphicon-sort"></span></th>
             <th>District <span class="glyphicon glyphicon-sort"></span></th>
-            <th>Counties Represented <span class="glyphicon glyphicon-sort"></span></th>
           </thead>
           <tbody>
             {% for i in member %}
@@ -41,56 +25,31 @@
               </td>
               <td>{{ i.chamber }}</p>
               <td>{{ i.district  }}</td>
-              <td>
-                
-               <!-- {% for key in i.counties %} 
-                {{ key }}
-                  
-               {% endfor %}
- -->
-              </td>
             </tr>
-
             {% endfor %}
-            <tbody>
-            </table>
-          </div>
-        </div>
-
-
-
-        <div class="row ">
-         {% for i in member %}
-
-         <div class="col-lg-2 col-md-4 col-xs-6 col-sm-12">
-          <a href="{{ i.legislator_id}}">
-            <figure>
-             <img src="{{ STATIC_URL }}{{ i.photo}}" class="pic">
-             <figcaption>{{ i.first_name }} {{ i.last_name }}</figcaption>
-           </figure>
-         </a>
-
-       </div>	
-
-
-       {% endfor %}
-     </div>
-   </div>
-
+          <tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row ">
+      {% for i in member %}
+      <div class="col-lg-2 col-md-4 col-xs-6 col-sm-12">
+        <a href="{{ i.legislator_id}}">
+          <figure>
+            <img src="{{ STATIC_URL }}{{ i.photo}}" class="pic">
+            <figcaption>{{ i.first_name }} {{ i.last_name }}</figcaption>
+          </figure>
+        </a>
+      </div>	
+      {% endfor %}
+    </div>
+  </div>
 <script>
-$(document).ready(function(){
-$(function(){
-$("#mytable").tablesorter();
-});
-});
+  $(document).ready(function(){
+    $(function(){
+      $("#mytable").tablesorter();
+    });
+  });
 </script>
+{% endblock %} 
 
-
-
-
-
-
-
-
-
-   {% endblock %} 
