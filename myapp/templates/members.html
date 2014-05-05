@@ -18,7 +18,7 @@
           <tbody>
             {% for i in member %}
             <tr> 
-              <td><img src="{{ STATIC_URL }}{{ i.photo}}" width="75px" class="img-circle"></td>
+              <td><img src="{{ STATIC_URL }}{{ i.photo}}" width="75px" class="img-rounded"></td>
               <td>
                 <h3><a href="{{ i.legislator_id}}">{{ i.first_name }} {{ i.last_name }}</a></h3>
                 <p>{{ i.party }}</p>

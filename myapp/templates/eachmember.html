@@ -6,7 +6,7 @@
 <div class = "container-fluid">
 	<div class="row ">
 		<div class="col-md-2">
-      <img src ="{{ STATIC_URL }}{{ each_member.photo }}" class="img-responsive img-circle">
+      <img src ="{{ STATIC_URL }}{{ each_member.photo }}" class="img-responsive img-rounded">
     </div>	
     <div class="col-md-10">
       <div class="row">
@@ -37,16 +37,30 @@
 <h2>Voting History</h2>
   <table class="table table-striped" id="mytable">
     <thead>   
-      <th>Bill <span class="glyphicon glyphicon-sort"></span></th>
+      <th>Action <span class="glyphicon glyphicon-sort"></span></th>
       <th>Vote <span class="glyphicon glyphicon-sort"></span></th> 
     </thead>
     <tbody>
       {% for i in each_vote %}
       <tr> 
         <td>{{ i.action_id }}</td>
-        <td>{{ i.vote }}</p>
+        <td>{{ i.vote }}</td>
       </tr>
       {% endfor %}
+
+       <!-- {{ action_list }} -->
+
+      <!-- {% for i in action_list %}
+        {{i.bill_id}}
+        {{i.action_id}}
+      {% endfor %} -->
+      <!-- {% for i in each_vote %}
+      {% for i.action_id in action %}
+        <tr>
+          <td>{{ i.action_id }}</td>
+        <tr>
+      {% endfor %}
+      {% endfor %} -->
     <tbody>
   </table>
 <script>

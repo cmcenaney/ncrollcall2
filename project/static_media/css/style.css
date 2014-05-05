@@ -6,10 +6,10 @@
 	align: center;
 }
 
-figure{
-	width:100%;
-	float:left;
-}
+/*figure{
+	width:30%;
+	
+}*/
 
 figcaption{
 	text-align: center;
@@ -51,6 +51,22 @@ th{
 .leaders img{
 	display:inline;
 	display:block;
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+.panel-title{
+	font-weight: bold;
+}
+
+.panel-title p{
+	font-style: italic;
 }
 
 
