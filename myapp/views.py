@@ -71,7 +71,7 @@ def each_member(request,legislator_id):
 			for p in bill:
 				# action_list['subject'] = p.subject
 				#action_list.append(str(j.bill_id) + " | " + str(j.action_id) + " | " + str(j.motion) + " | " + str(p.subject))
-				action_list.extend((p.subject,j.motion,i.vote,j.result))
+				action_list.extend(('<a href="/bills/'+str(p.bill_id)+'">'+str(p.subject)+'</a>',j.motion,i.vote,j.result))
 
 	context = {
 		'each_member': each_member,

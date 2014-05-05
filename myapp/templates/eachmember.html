@@ -45,7 +45,9 @@
     <tbody>
       <tr>
       {% for i in action_list %}
+      {% autoescape off %}
         <td>{{ i }}</td>
+        {% endautoescape %}
         {% if forloop.last %}
           </tr>
         {% else %}
