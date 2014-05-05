@@ -14,75 +14,12 @@
       </div>
       <div class="panel-body">
         <table class="table table-striped" id="mytable">
-       <!--  {% for i in bill %}
-        <tr>
-          <td>{{ i.subject }}</td>
-          <td>{{ i.bill_id }}</td>
-          {% for i.bill_id in action %}
-            {{ i.bill_id }}
-            {% if i.bill_id in action %}
-              hello
-            {% endif %}
-         {% endfor %}
-          {% endfor %} 
-        </tr>  -->
-        {% for i in action_lists %}
-        <tr>
-          <td>{{ i.motion }}</td>
-          <td>{{ i.result }}</td>
-          <td>{{ i.bill_id }}</td>
-        </tr>
-        {% endfor %}
-
-        <!-- {% for i in action %}
-        <tr>
-          <td>{{ i.action_id }}</td>
-          <td>{{ i.bill_id }}</td>
-        </tr>
-        {% endfor %} -->
-
         {% for i in bill %}
         <tr>
           <td><a href="{% url 'gadb_bill' %}{{i.bill_id}}">{{ i.subject }}</a></td>
-          <td>{{ i.doc_id }}</td>
-          
+          <td>{{ i.doc_id }}</td> 
         </tr>
-        {% endfor %}
-
-        <!-- {% for i in actions %}
-          {{ i.bill_id }}
-        {% endfor %}
-
-        {% for i in bill %}
-        <tr>{{ i.subject }}</tr>
-
-         {% for b in actions %}
-          {{ b.result }}
-            
-            {% if i.bill_id == b.bill_id %}
-              </tr>{{ b.result }}</tr>
-
-            {% else %}
-            hello 
-
-
-         <!--  {% endif %} -->
-         {% endfor %}
-         {% endfor %} -->
-      
-       <!--  {% for i in action %}
-        <tr>
-          <td>{{ i.subject }}</td>
-          
-          <td>{{ i.bill_id }}</td>
-          <td>{{ i.aye }}</td>
-          <td>{{ i.no }}</td>
-          
-       
-          <td>{{ i.result }}</td>
-          {% endfor %} -->
-
-          
+        {% endfor %}    
         </tr>
         </table>
       </div>

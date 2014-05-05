@@ -37,30 +37,23 @@
 <h2>Voting History</h2>
   <table class="table table-striped" id="mytable">
     <thead>   
+      <th>Bill <span class="glyphicon glyphicon-sort"></span></th> 
       <th>Action <span class="glyphicon glyphicon-sort"></span></th>
-      <th>Vote <span class="glyphicon glyphicon-sort"></span></th> 
+      <th>Member Vote <span class="glyphicon glyphicon-sort"></span></th>
+      <th>Chamber Vote <span class="glyphicon glyphicon-sort"></span></th>
     </thead>
     <tbody>
-      {% for i in each_vote %}
-      <tr> 
-        <td>{{ i.action_id }}</td>
-        <td>{{ i.vote }}</td>
-      </tr>
+      <tr>
+      {% for i in action_list %}
+        <td>{{ i }}</td>
+        {% if forloop.last %}
+          </tr>
+        {% else %}
+          {% if forloop.counter|divisibleby:"4" %}
+            </tr><tr>
+          {% endif %}
+        {% endif %}
       {% endfor %}
-
-       <!-- {{ action_list }} -->
-
-      <!-- {% for i in action_list %}
-        {{i.bill_id}}
-        {{i.action_id}}
-      {% endfor %} -->
-      <!-- {% for i in each_vote %}
-      {% for i.action_id in action %}
-        <tr>
-          <td>{{ i.action_id }}</td>
-        <tr>
-      {% endfor %}
-      {% endfor %} -->
     <tbody>
   </table>
 <script>

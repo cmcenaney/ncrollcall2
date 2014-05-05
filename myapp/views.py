@@ -5,28 +5,25 @@ from django.shortcuts import render, get_object_or_404, redirect, render_to_resp
 
 # from django.views.generic.list import ListView
 
-
 def index(request):
     bill = gadb_bill.objects.all()
     member = gadb_action.objects.all()
     myList = []
     # kwargs = {}
     # action_list = gadb_action.objects.none()
-    
     # action_list = []
 
+    # trims to last 15 bills by date
     limit = 15
     # count_action = action.count()
     # end_action = action[count_action-limit:]
     count_bill = bill.count()
     end_bill = bill[count_bill-limit:]
-
    
     for i in end_bill:
     	#kwargs['i.bill_id'] = i.bill_id
     	action = gadb_action.objects.filter(bill_id=i.bill_id)
     	myList.append(action)
-
     	#action_list.gadb_action.add(action)
     	#action_list.append(action)
 
@@ -66,9 +63,15 @@ def each_member(request,legislator_id):
 	each_vote = gadb_vote.objects.filter(legislator_id=legislator_id)
 	action_list = []
 
+
 	for i in each_vote:
 		action = gadb_action.objects.filter(action_id=i.action_id)
-		action_list.append(action)
+		for j in action:
+			bill = gadb_bill.objects.filter(bill_id=j.bill_id)
+			for p in bill:
+				# action_list['subject'] = p.subject
+				#action_list.append(str(j.bill_id) + " | " + str(j.action_id) + " | " + str(j.motion) + " | " + str(p.subject))
+				action_list.extend((p.subject,j.motion,i.vote,j.result))
 
 	context = {
 		'each_member': each_member,
@@ -76,22 +79,6 @@ def each_member(request,legislator_id):
 		'action_list': action_list
 	}
 	return render(request, "eachmember.html", context)
-
-
-
-
-	# all_models_dict = {
- #        "template_name": "eachmember.html",
- #        "queryset": each_member.objects.all(),
- #        "extra_context" : {"vote" : gadb_vote.objects.all(),
- #                           "each_member": get_object_or_404(gadb_legislator, legislator_id=legislator_id)
- #                           #and so on for all the desired models...
- #                           }
- #    }
-
-
-def gadb_stats(request):
-	return HttpResponse("votes")
 
 def gadb_votes(request):
 	vote = gadb_vote.objects.all()

@@ -81,8 +81,6 @@ class gadb_legislator(models.Model):
     photo = models.CharField(unique=False, max_length=50)
     votelist = models.ManyToManyField(gadb_vote)
 
-
-
     class Meta(object):
         verbose_name_plural = "Legislator"
         #ordering = ('-date', 'name',)
